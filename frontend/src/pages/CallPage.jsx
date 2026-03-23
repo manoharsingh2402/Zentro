@@ -95,10 +95,10 @@ const CallContent = () => {
   useEffect(() => { 
     // callId -> id1-id2 
 
-    const id1 = useParams().id.split("-")[0].toString();
-    const id2 = useParams().id.split("-")[1].toString();  
+    const id1 = callId.split("-")[0].toString();
+    const id2 = callId.split("-")[1].toString();  
 
-    const currentUserId = useAuthUser().authUser._id.toString(); 
+    const currentUserId = authUser._id.toString(); 
 
     const targetUserId = currentUserId === id1 ? id2 : id1; 
 
