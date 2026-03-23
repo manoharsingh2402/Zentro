@@ -6,10 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import ChatPage from "./pages/ChatPage";
 import CallPage from "./pages/CallPage";
 import NotificationsPage from "./pages/NotificationsPage";
-import OnboardingPage from "./pages/OnboardingPage";
+import OnboardingPage from "./pages/OnboardingPage"; 
+import FriendsPage from "./pages/FriendsPage.jsx";
 import Layout from "./components/Layout.jsx";
 import { Toaster } from "react-hot-toast";
-import axios from "axios";
+// import axios from "axios";
 // import { useQuery } from '@tanstack/react-query'
 // import {axiosInstance} from './lib/axios.js'
 import PageLoader from "./components/PageLoader.jsx";
@@ -119,6 +120,18 @@ function App() {
             )
           }
         />
+
+        <Route
+          path="/friends"
+          element={
+            isAuthenticated && isOnBoarded ? (
+              <FriendsPage />
+            ) : (
+              <Navigate to={isAuthenticated ? "/onboarding" : "/login"} />
+            )
+          }
+        />
+
       </Routes>
 
       <Toaster />

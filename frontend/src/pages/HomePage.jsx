@@ -19,6 +19,7 @@ import { getLanguageFlag } from "../components/FriendCard.jsx";
 
 
 import { capitalize } from "../lib/utils.js";
+
 function HomePage() {
   const queryClient = useQueryClient();
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
