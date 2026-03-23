@@ -73,7 +73,7 @@ function CallPage() {
         {client && call ?(
           <StreamVideo client={client}>
             <StreamCall call={call}> 
-              <CallContent />
+              <CallContent callId={callId} authUser={authUser} />
             </StreamCall>
           </StreamVideo>
         ) : (
@@ -86,7 +86,7 @@ function CallPage() {
   )
 } 
 
-const CallContent = () => {
+const CallContent = ({ callId, authUser }) => {
   const { useCallCallingState } = useCallStateHooks(); 
   const callingState = useCallCallingState(); 
   const navigate = useNavigate(); 
