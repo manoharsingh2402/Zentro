@@ -92,10 +92,20 @@ const CallContent = () => {
   const navigate = useNavigate(); 
 
   // FIX: Wrap the navigation in a useEffect
-  useEffect(() => {
+  useEffect(() => { 
+    // callId -> id1-id2 
+
+    const id1 = useParams().id.split("-")[0].toString();
+    const id2 = useParams().id.split("-")[1].toString();  
+
+    const currentUserId = useAuthUser().authUser._id.toString(); 
+
+    const targetUserId = currentUserId === id1 ? id2 : id1; 
+
     if (callingState === CallingState.LEFT) {
-      navigate("/");
+      navigate(`/chat/${targetUserId}`);
     } 
+
   }, [callingState, navigate]);
 
   return (
